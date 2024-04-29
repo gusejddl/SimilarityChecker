@@ -1,9 +1,17 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class SimilarityCheckerTest {
 
+
+    private SimilarityChecker similarityChecker;
+
+    @BeforeEach
+    void setUp() {
+        similarityChecker = new SimilarityChecker();
+    }
 
     @Test
     void throwExceptionWhenInputInvalidInput() {
@@ -15,8 +23,8 @@ class SimilarityCheckerTest {
 
     private void assertIllegalArgument(String str1,String str2) {
         try {
-            SimilarityChecker similarityChecker = new SimilarityChecker();
-            similarityChecker.check(str1,str2);
+
+            similarityChecker.calSimilarity(str1,str2);
             fail();
         } catch (IllegalArgumentException e) {
 
@@ -24,10 +32,23 @@ class SimilarityCheckerTest {
     }
 
     @Test
-    void returnPointIfAllMatchedNumber(){
-        SimilarityChecker similarityChecker = new SimilarityChecker();
-        int expected = 60;
-        assertEquals(expected,similarityChecker.check("ABC","ABC"));
+    void returnPointIfSameLength(){
+        assertEquals(60, similarityChecker.calWordLength("ABC","ABC"));
     }
+
+
+    @Test
+    void returnPointIfMoreThanDoubleDiffLength(){
+        assertEquals(0, similarityChecker.calWordLength("ABCDEF","ABC"));
+    }
+
+    @Test
+    void returnPartialPointForLength(){
+        assertEquals(19, similarityChecker.calWordLength("ABCDE","ABC"));
+    }
+
+
+
+
 
 }
