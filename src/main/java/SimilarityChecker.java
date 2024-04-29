@@ -3,13 +3,11 @@ import java.util.ArrayList;
 public class SimilarityChecker {
 
 
-    public int calSimilarity(String str1, String str2) {
+    public void calSimilarity(String str1, String str2) {
 
-        int result = 0;
         assertIllegalArgument(str1);
         assertIllegalArgument(str2);
 
-        return result;
     }
 
     private static void assertIllegalArgument(String str) {
@@ -30,8 +28,8 @@ public class SimilarityChecker {
         if (str1.length() == str2.length()) {
             return 60;
         }
-        int longLength = getLongLength(str1, str2);
-        int shortLength = getShortLength(str1, str2);
+        int longLength = Math.max(str1.length(), str2.length());
+        int shortLength = Math.min(str1.length(), str2.length());
 
         if (longLength >= shortLength * 2) {
             return 0;

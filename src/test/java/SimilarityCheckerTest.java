@@ -46,9 +46,4 @@ class SimilarityCheckerTest {
     void returnPartialPointForLength(){
         assertEquals(19, similarityChecker.calWordLength("ABCDE","ABC"));
     }
-
-
-
-
-
 }
