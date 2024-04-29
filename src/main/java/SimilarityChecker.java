@@ -30,28 +30,14 @@ public class SimilarityChecker {
         if (input1.length() == input2.length()) {
             return MAXLENGTHPOINT;
         }
-        int longLength = getLongLength(input1, input2);
-        int shortLength = getShortLength(input1, input2);
+        int longLength = Math.max(input1.length(), input2.length());
+        int shortLength = Math.min(input1.length(), input2.length());
 
         if (isMoreThanDoubleDiffLength(longLength, shortLength)) {
             return MINPOINT;
         }
 
         return (MAXLENGTHPOINT - (longLength - shortLength)*MAXLENGTHPOINT / shortLength);
-    }
-
-    public int getLongLength(String input1, String input2) {
-        if (input1.length() < input2.length()) {
-            return input2.length();
-        }
-        return input1.length();
-    }
-
-    public int getShortLength(String input1, String input2) {
-        if (input1.length() > input2.length()) {
-            return input2.length();
-        }
-        return input1.length();
     }
 
     private static boolean isMoreThanDoubleDiffLength(int longLength, int shortLength) {
