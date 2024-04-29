@@ -18,3 +18,4 @@
 * 부분점수측정방법
   - TotalCnt = 등장하는 알파벳 총 개수
   - SameCnt = 두 문자열 중, 같은 알파벳의 개수
+  - (SameCnt/TotalCnt)*40

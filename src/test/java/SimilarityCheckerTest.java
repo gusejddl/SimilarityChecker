@@ -44,6 +44,32 @@ class SimilarityCheckerTest {
 
     @Test
     void returnPartialPointForLength(){
-        assertEquals(19, similarityChecker.calWordLength("ABCDE","ABC"));
+        assertEquals(20, similarityChecker.calWordLength("ABCDE","ABC"));
     }
+
+    @Test
+    void returnPointIfSameAlpha(){
+        assertEquals(40, similarityChecker.calWordAlpha("ABC","ABC"));
+        assertEquals(40, similarityChecker.calWordAlpha("AABA","ABA"));
+    }
+
+
+    @Test
+    void returnPointIfAllDiffrentAlpha(){
+        assertEquals(0, similarityChecker.calWordAlpha("DEF","ABC"));
+    }
+
+    @Test
+    void returnPartialPointForAlpha(){
+        assertEquals(20, similarityChecker.calWordAlpha("AA","AAE"));
+    }
+
+    @Test
+    void calSimilarity(){
+        assertEquals(44, similarityChecker.calSimilarity("ABCDE","ABC"));
+        assertEquals(100, similarityChecker.calSimilarity("ABC","ABC"));
+    }
+
+
+
 }
