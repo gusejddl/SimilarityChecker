@@ -4,6 +4,7 @@ public class SimilarityChecker {
     public static final int MINPOINT = 0;
     public static final int MAXALPHAPOINT = 40;
 
+
     public int calSimilarity(String input1, String input2) {
 
         assertIllegalArgument(input1);
@@ -32,6 +33,7 @@ public class SimilarityChecker {
         }
         int longLength = Math.max(input1.length(), input2.length());
         int shortLength = Math.min(input1.length(), input2.length());
+
 
         if (isMoreThanDoubleDiffLength(longLength, shortLength)) {
             return MINPOINT;
