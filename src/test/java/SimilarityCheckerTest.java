@@ -22,4 +22,12 @@ class SimilarityCheckerTest {
 
         }
     }
+
+    @Test
+    void returnPointIfAllMatchedNumber(){
+        SimilarityChecker similarityChecker = new SimilarityChecker();
+        int expected = 60;
+        assertEquals(expected,similarityChecker.check("ABC","ABC"));
+    }
+
 }
